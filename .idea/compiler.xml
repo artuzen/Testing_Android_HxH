@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Testing_Androind_HxH" />
+        <module name="Testing_Android_HxH" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Testing_Android_Hx" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

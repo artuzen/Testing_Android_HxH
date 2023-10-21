@@ -71,8 +71,7 @@ class MainActivity {
         println("Тест на ошибки")
         TimeUnit.SECONDS.sleep(10)
         try {
-            val element1 = androidDriver.findElement(AppiumBy.accessibilityId("Zakyski"))
-            element1.click()
+            androidDriver.findElement(AppiumBy.accessibilityId("Zakyski")).click()
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             e.printStackTrace()
             println("Найдена ошибка, данного элемента не существует")

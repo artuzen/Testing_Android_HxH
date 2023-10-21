@@ -43,9 +43,9 @@ class MainActivity {
 
         TimeUnit.SECONDS.sleep(10)
 
-       /* val text = androidDriver.pageSource
-        val element4 = androidDriver.findElement(AppiumBy.accessibilityId())
-        element4.sendKeys(text)*/
+        /* val text = androidDriver.pageSource
+         val element4 = androidDriver.findElement(AppiumBy.accessibilityId())
+         element4.sendKeys(text)*/
 
 
 
@@ -62,6 +62,20 @@ class MainActivity {
     @Test
     fun testOne(){
         println("Тест запущен")
+        TimeUnit.SECONDS.sleep(5)
+
+    }
+
+    @Test
+    fun testTwo(){
+        println("Тест на ошибки")
         TimeUnit.SECONDS.sleep(10)
+        try {
+            val element1 = androidDriver.findElement(AppiumBy.accessibilityId("Zakyski"))
+            element1.click()
+        } catch (e: org.openqa.selenium.NoSuchElementException) {
+            e.printStackTrace()
+            println("Найдена ошибка, данного элемента не существует")
+        }
     }
 }

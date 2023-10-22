@@ -68,7 +68,6 @@ class MainActivity {
     @Test
     fun test2(){
         println("Тест на ошибки")
-        TimeUnit.SECONDS.sleep(5)
         try {
             androidDriver.findElement(AppiumBy.accessibilityId("Zakyski"))
                 .click()
@@ -76,6 +75,7 @@ class MainActivity {
             e.printStackTrace()
             println("Найдена ошибка, данного элемента не существует")
         }
+        TimeUnit.SECONDS.sleep(5)
     }
 
     @Test

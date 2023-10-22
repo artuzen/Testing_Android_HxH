@@ -9,8 +9,5 @@
         <module name="Testing_Android_HxH" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Testing_Android_Hx" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>

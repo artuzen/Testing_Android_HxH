@@ -5,12 +5,14 @@ import org.openqa.selenium.interactions.Pause
 import org.openqa.selenium.interactions.PointerInput
 import org.openqa.selenium.interactions.Sequence
 import java.time.Duration.ofMillis
+import java.util.concurrent.TimeUnit
 
 object TestFunctions {
 
     fun clickToElement (locator: String, locatorType: LocatorType) {
         val element = findElement(locator, locatorType)
         element.click()
+        TimeUnit.SECONDS.sleep(3)
     }
 
     fun sendText (locator: String, locatorType: LocatorType, text: String) {

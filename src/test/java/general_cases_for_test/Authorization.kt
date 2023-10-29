@@ -44,9 +44,11 @@ object Authorization {
                 text.indexOf("Введите код из смс&#10;") + 23,
                 text.indexOf("&#10;+7 (987) 991-59-81&"))
         )
+        TimeUnit.SECONDS.sleep(5)
 
         clickToElement(
             buttonMenu.androidXpath,
             LocatorType.XPATH)
+        TimeUnit.SECONDS.sleep(5)
     }
 }

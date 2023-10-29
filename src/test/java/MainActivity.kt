@@ -28,7 +28,7 @@ open class MainActivity {
         androidDriver = AndroidDriver(url, capabilities)
         androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4))
 
-        goToMainMenu(true)
+        goToMainMenu()
     }
 
     @AfterSuite

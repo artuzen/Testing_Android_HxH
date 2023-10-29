@@ -18,4 +18,9 @@ object ProfileScreen {
         androidAccessibilityId = "Выйти",
         elementName = "Кнопка Выйти из профиля"
     )
+
+    val buttonMyAddress = ScreenConstructor (
+        androidAccessibilityId = "Мои адреса",
+        elementName = "Кнопка Мои адреса на экране профиля"
+    )
 }

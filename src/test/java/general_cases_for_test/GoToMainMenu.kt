@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 object GoToMainMenu {
 
-    fun goToMainMenu(needToGoToMainMenu: Boolean) {
+    fun goToMainMenu() {
         try {
             clickToElement(
                 selectLanguage.androidXpath,

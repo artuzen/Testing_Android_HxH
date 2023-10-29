@@ -7,7 +7,7 @@ import TestFunctions.sendText
 import screens.AuthorizationScreen.buttonGetCode
 import screens.AuthorizationScreen.enterCode
 import screens.AuthorizationScreen.enterPhone
-import screens.MainScreen
+import screens.MainScreen.buttonMenu
 import screens.MainScreen.buttonProfile
 import screens.ProfileScreen.buttonEnter
 import java.util.concurrent.TimeUnit
@@ -45,6 +45,8 @@ object Authorization {
                 text.indexOf("&#10;+7 (987) 991-59-81&"))
         )
 
-        clickToElement(MainScreen.buttonMenu.androidXpath, LocatorType.XPATH)
+        clickToElement(
+            buttonMenu.androidXpath,
+            LocatorType.XPATH)
     }
 }

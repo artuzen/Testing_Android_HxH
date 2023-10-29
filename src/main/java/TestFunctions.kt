@@ -32,7 +32,7 @@ object TestFunctions {
         val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
         val actions = Sequence(finger, 1)
 
-        actions.addAction(finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), cordX, cordX))
+        actions.addAction(finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), cordX, cordY))
         actions.addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()))
         actions.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()))
 
@@ -46,13 +46,13 @@ object TestFunctions {
         actions.addAction(finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), startCordX, startCordY))
         actions.addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()))
         actions.addAction(Pause(finger, ofMillis(600)))
-        actions.addAction(finger.createPointerMove(ofMillis(1000), PointerInput.Origin.viewport(), startCordX, startCordY))
+        actions.addAction(finger.createPointerMove(ofMillis(1000), PointerInput.Origin.viewport(), moveCordX, moveCordY))
         actions.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()))
 
         androidDriver.perform(listOf(actions))
     }
 
-    private fun findElement(locator: String, locatorType: LocatorType) : WebElement{
+    fun findElement(locator: String, locatorType: LocatorType) : WebElement{
         return when (locatorType) {
             LocatorType.ID -> androidDriver.findElement(AppiumBy.id(locator))
             LocatorType.XPATH ->  androidDriver.findElement(AppiumBy.xpath(locator))

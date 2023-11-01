@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite for Android">
+    <parameter name="paramPlatformName" value="IOS"/>
+    <parameter name="paramPlatformVersion" value="17.0"/>
+    <parameter name="paramDeviceName" value="iPhone 15"/>
+    <parameter name="paramUDID" value=""/>
+    <parameter name="paramTimeToSearchElement" value="6"/>
+    <parameter name="paramPathToApp" value="/Users/admin/apps/Runner-intel.app"/>
+    <test verbose="2" preserve-order="true" name="IOs tests" parallel="none">
+        <classes>
+            <class name="tests.TestLaunch"/>
+            <class name="tests.TestErrorHandling"/>
+            <class name="tests.TestAddingSoup"/>
+            <class name="tests.TestNeededAuthorization">
+                <methods>
+                    <include name="test1"/>
+                    <include name="test2"/>
+                    <include name="test3"/>
+                    <include name="test4"/>
+                </methods>
+            </class>
+            <class name="tests.TestAuthorization"/>
+            <class name="tests.TestAddAddressDelivery"/>
+        </classes>
+    </test>
+</suite>

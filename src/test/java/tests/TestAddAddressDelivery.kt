@@ -29,12 +29,18 @@ class TestAddAddressDelivery : MainActivity(){
 
         clickToElement(
             buttonProfile.androidXpath,
-            LocatorType.XPATH)
+            LocatorType.XPATH,
+            buttonProfile.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
+        )
         TimeUnit.SECONDS.sleep(5)
 
         clickToElement(
             buttonMyAddress.androidAccessibilityId,
-            LocatorType.ACCESSIBILITY_ID)
+            LocatorType.ACCESSIBILITY_ID,
+            buttonMyAddress.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
+        )
         TimeUnit.SECONDS.sleep(10)
 
         try {
@@ -43,48 +49,69 @@ class TestAddAddressDelivery : MainActivity(){
 
         clickToElement(
             buttonAddAddress.androidAccessibilityId,
-            LocatorType.ACCESSIBILITY_ID)
+            LocatorType.ACCESSIBILITY_ID,
+            buttonAddAddress.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
+        )
         TimeUnit.SECONDS.sleep(10)
 
         try {
             clickToElement(
                 buttonUseDoNotAllow.androidXpath,
-                LocatorType.XPATH)
+                LocatorType.XPATH,
+                buttonUseDoNotAllow.iosClassChain,
+                LocatorType.IOS_CLASS_CHAIN
+            )
             TimeUnit.SECONDS.sleep(10)
         } catch (_: Exception){ }
 
         clickToElement(
             buttonAddAddress.androidAccessibilityId,
-            LocatorType.ACCESSIBILITY_ID)
+            LocatorType.ACCESSIBILITY_ID,
+            buttonAddAddress.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
+        )
         TimeUnit.SECONDS.sleep(5)
 
         clickToElement(
             sendAddress.androidClassName,
-            LocatorType.CLASS_NAME
+            LocatorType.CLASS_NAME,
+            sendAddress.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
         )
         TimeUnit.SECONDS.sleep(5)
 
         clickToElement(
             buttonCross.androidXpath,
-            LocatorType.XPATH)
+            LocatorType.XPATH,
+            buttonCross.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
+        )
         TimeUnit.SECONDS.sleep(5)
 
         sendText(
             sendAddress.androidClassName,
             LocatorType.CLASS_NAME,
+            sendAddress.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN,
             myAddress.androidAccessibilityId)
         TimeUnit.SECONDS.sleep(5)
 
         clickToElement(
             myAddress.androidAccessibilityId,
-            LocatorType.ACCESSIBILITY_ID)
+            LocatorType.ACCESSIBILITY_ID,
+            myAddress.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
+        )
         TimeUnit.SECONDS.sleep(15)
 
         addFullAddress()
 
         clickToElement(
             buttonSafe.androidAccessibilityId,
-            LocatorType.ACCESSIBILITY_ID
+            LocatorType.ACCESSIBILITY_ID,
+            buttonSafe.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
         )
         TimeUnit.SECONDS.sleep(5)
 
@@ -94,13 +121,17 @@ class TestAddAddressDelivery : MainActivity(){
 
         swipeElementUpToDown(
             screenMyAddress.androidXpath,
-            LocatorType.XPATH
+            LocatorType.XPATH,
+            screenMyAddress.iosPredicate,
+            LocatorType.IOS_PREDICATE_STRING
         )
         TimeUnit.SECONDS.sleep(5)
 
         clickToElement(
             buttonMenu.androidXpath,
-            LocatorType.XPATH)
+            LocatorType.XPATH,
+            buttonMenu.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN)
         TimeUnit.SECONDS.sleep(5)
     }
 }

@@ -1,7 +1,6 @@
 package tests
 
 import MainActivity
-import general_cases_for_test.Authorization.authorization
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
 import org.testng.annotations.Test
 import java.util.concurrent.TimeUnit
@@ -32,7 +31,6 @@ class TestNeededAuthorization : MainActivity() {
     @Test
     fun test4(){
         println("Авторизация нужна и она есть")
-        authorization("9879915981")
         checkAuthorizationUser(true)
         TimeUnit.SECONDS.sleep(5)
     }

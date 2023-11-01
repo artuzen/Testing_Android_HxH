@@ -18,11 +18,20 @@ class TestAddingSoup : MainActivity() {
         checkAuthorizationUser(false)
 
         println("Клик по вкладке 'Суп'")
-        clickToElement(tabSoup.androidXpath, LocatorType.XPATH)
+        clickToElement(
+            tabSoup.androidXpath,
+            LocatorType.XPATH,
+            tabSoup.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN
+        )
         TimeUnit.SECONDS.sleep(5)
 
         println("Добавление тыквенного супа")
-        clickToElement(pumpkinSoup.androidXpath, LocatorType.XPATH)
+        clickToElement(
+            pumpkinSoup.androidXpath,
+            LocatorType.XPATH,
+            pumpkinSoup.iosClassChain,
+            LocatorType.IOS_CLASS_CHAIN)
         TimeUnit.SECONDS.sleep(5)
     }
 }

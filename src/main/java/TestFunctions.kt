@@ -15,7 +15,8 @@ object TestFunctions {
         locatorAndroid: String,
         locatorTypeAndroid: LocatorType,
         locatorIOS: String,
-        locatorTypeIOS: LocatorType
+        locatorTypeIOS: LocatorType,
+        elementName: String
     ) {
         chooseLocator (
             locatorAndroid, locatorTypeAndroid,
@@ -29,7 +30,8 @@ object TestFunctions {
         locatorTypeAndroid: LocatorType,
         locatorIOS: String,
         locatorTypeIOS: LocatorType,
-        text: String
+        text: String,
+        elementName: String
     ) {
         chooseLocator (
             locatorAndroid, locatorTypeAndroid,
@@ -41,7 +43,8 @@ object TestFunctions {
         locatorAndroid: String,
         locatorTypeAndroid: LocatorType,
         locatorIOS: String,
-        locatorTypeIOS: LocatorType
+        locatorTypeIOS: LocatorType,
+        elementName: String
     ) {
         chooseLocator (
             locatorAndroid, locatorTypeAndroid,
@@ -53,7 +56,8 @@ object TestFunctions {
         locatorAndroid: String,
         locatorTypeAndroid: LocatorType,
         locatorIOS: String,
-        locatorTypeIOS: LocatorType
+        locatorTypeIOS: LocatorType,
+        elementName: String
     ) : Boolean {
 
         return chooseLocator (
@@ -94,7 +98,10 @@ object TestFunctions {
         }
     }
 
-    fun findElement(locator: String, locatorType: LocatorType) : WebElement{
+    fun findElement(
+        locator: String,
+        locatorType: LocatorType
+    ) : WebElement{
         return when (locatorType) {
             LocatorType.ID -> {
                 if (platformType == TypeOS.ANDROID) {

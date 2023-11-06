@@ -1,12 +1,10 @@
 package tests
 
-import LocatorType
 import MainActivity
-import TestFunctions.clickToElement
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
 import org.testng.annotations.Test
-import screens.MainScreen.pumpkinSoup
-import screens.MainScreen.tabSoup
+import screens.MainScreen.clickPumpkinSoup
+import screens.MainScreen.clickTabSoup
 import java.util.concurrent.TimeUnit
 
 class TestAddingSoup : MainActivity() {
@@ -18,20 +16,11 @@ class TestAddingSoup : MainActivity() {
         checkAuthorizationUser(false)
 
         println("Клик по вкладке 'Суп'")
-        clickToElement(
-            tabSoup.androidXpath,
-            LocatorType.XPATH,
-            tabSoup.iosClassChain,
-            LocatorType.IOS_CLASS_CHAIN
-        )
+        clickTabSoup()
         TimeUnit.SECONDS.sleep(5)
 
         println("Добавление тыквенного супа")
-        clickToElement(
-            pumpkinSoup.androidXpath,
-            LocatorType.XPATH,
-            pumpkinSoup.iosClassChain,
-            LocatorType.IOS_CLASS_CHAIN)
+        clickPumpkinSoup()
         TimeUnit.SECONDS.sleep(5)
     }
 }

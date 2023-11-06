@@ -12,7 +12,6 @@ class TestLaunch : MainActivity() {
         println("Тест на запуск программы")
 
         checkAuthorizationUser(false)
-
         TimeUnit.SECONDS.sleep(5)
     }
 }

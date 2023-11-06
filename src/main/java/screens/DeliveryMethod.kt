@@ -1,11 +1,17 @@
 package screens
 
+import LocatorType
+import TestFunctions.clickToElement
+
 object DeliveryMethod {
 
-    val buttonPickup = ScreenConstructor (
-        androidAccessibilityId = "Самовывоз",
-        iosAccessibilityId = "Самовывоз",
-        iosClassChain = "**/XCUIElementTypeOther[`label == \"Самовывоз\"`]",
-        elementName = "Кнопка Самовывоз на экране выбора способа доставки"
-    )
+    fun clickButtonPickup () {
+        clickToElement(
+            locatorAndroid = "Самовывоз",
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = "**/XCUIElementTypeOther[`label == \"Самовывоз\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Кнопка Самовывоз на экране выбора способа доставки"
+        )
+    }
 }

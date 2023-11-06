@@ -1,27 +1,41 @@
 package screens
 
+import LocatorType
+import TestFunctions.clickToElement
+import TestFunctions.sendText
+
 object AuthorizationScreen {
 
-    val enterPhone = ScreenConstructor (
-        androidXpath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
-                "На него отправим код подтверждения\"]/android.widget.EditText",
-        iosClassName = "XCUIElementTypeTextField",
-        iosXpath = "//XCUIElementTypeApplication[@name=\"School\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeTextField",
-        elementName = "Поле указание номера отправления кода для авторизации"
-    )
+    fun sendEnterPhone(text: String) {
+        sendText(
+            locatorAndroid = "//android.view.View[@content-desc=\"Укажите телефон\n" +
+                   "На него отправим код подтверждения\"]/android.widget.EditText",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "XCUIElementTypeTextField",
+            locatorTypeIOS = LocatorType.CLASS_NAME,
+            text = text,
+            elementName = "Поле указание номера отправления кода для авторизации"
+        )
+    }
 
-    val buttonGetCode = ScreenConstructor (
-        androidAccessibilityId = "Получить код",
-        iosAccessibilityId = "Получить код",
-        iosClassChain = "**/XCUIElementTypeStaticText[`label == \"Получить код\"`]",
-        elementName = "Кнопка получения кода авторизации"
-    )
+    fun clickButtonGetCode() {
+        clickToElement(
+            locatorAndroid = "Получить код",
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = "**/XCUIElementTypeStaticText[`label == \"Получить код\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Кнопка получения кода авторизации"
+        )
+    }
 
-    val enterCode = ScreenConstructor (
-        androidClassName = "android.widget.EditText",
-        iosClassName = "XCUIElementTypeTextField",
-        elementName = "Поле ввода кода авторизации"
-    )
-
-
+    fun sendEnterCode(text: String) {
+        sendText(
+            locatorAndroid = "android.widget.EditText",
+            locatorTypeAndroid = LocatorType.CLASS_NAME,
+            locatorIOS = "XCUIElementTypeTextField",
+            locatorTypeIOS = LocatorType.CLASS_NAME,
+            text = text,
+            elementName = "Поле ввода кода авторизации"
+        )
+    }
 }

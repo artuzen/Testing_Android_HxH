@@ -1,100 +1,247 @@
 package screens
 
+import GlobalVariable.platformType
+import LocatorType
+import TestFunctions.clickToElement
+import TestFunctions.findElement
+import TestFunctions.sendText
+import TestFunctions.swipeOnScreen
+import TestFunctions.tapByCoordinates
+import TypeOS
+import java.util.concurrent.TimeUnit
+
 object DeliveryScreen {
 
-    val buttonAddAddress = ScreenConstructor (
-        androidAccessibilityId = "Добавить новый адрес",
-        iosAccessibilityId = "Добавить новый адрес",
-        iosClassChain = "**/XCUIElementTypeImage[`label == \"Добавить новый адрес\"`]",
-        elementName = "Кнопка Добавить адрес на экране Доставки"
-    )
+    fun clickButtonAddAddress () {
+        clickToElement(
+            locatorAndroid = "Добавить новый адрес",
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = "**/XCUIElementTypeImage[`label == \"Добавить новый адрес\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Кнопка Добавить адрес на экране Доставки"
+        )
+    }
 
-    val sendAddress = ScreenConstructor (
-        androidClassName = "android.widget.EditText",
-        iosAccessibilityId = "Адрес",
-        iosClassChain = "**/XCUIElementTypeTextField[`label == \"Адрес\"`]",
-        elementName = "Окно ввода адреса"
-    )
+    fun clickSendAddress () {
+        clickToElement(
+            locatorAndroid = "android.widget.EditText",
+            locatorTypeAndroid = LocatorType.CLASS_NAME,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Адрес\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Окно ввода адреса"
+        )
+    }
 
-    val windowApartment = ScreenConstructor (
-        androidXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]",
-        iosClassChain = "**/XCUIElementTypeTextField[`label == \"Квартира\"`]",
-        elementName = "Окно ввода квартиры"
-    )
+    fun sendTextSendAddress (text: String) {
+        sendText(
+            locatorAndroid = "android.widget.EditText",
+            locatorTypeAndroid = LocatorType.CLASS_NAME,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Адрес\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            text = text,
+            elementName = "Окно ввода адреса"
+        )
+    }
 
-    val windowEntrance = ScreenConstructor (
-        androidXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[2]",
-        iosClassChain = "**/XCUIElementTypeTextField[`label == \"Подъезд\"`]",
-        elementName = "Окно ввода подьезда"
-    )
+    fun sendWindowApartment (text: String) {
+        clickToElement(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Квартира\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Окно ввода квартиры"
+        )
+        TimeUnit.SECONDS.sleep(5)
+        sendText(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Квартира\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            text = text,
+            elementName = "Окно ввода квартиры"
+        )
+    }
 
-    val windowIntercom = ScreenConstructor (
-        androidXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[3]",
-        iosClassChain = "**/XCUIElementTypeTextField[`label == \"Домофон\"`]",
-        elementName = "Окно ввода домофона"
-    )
+    fun sendWindowEntrance (text: String) {
+        clickToElement(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[2]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Подъезд\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Окно ввода подьезда"
+        )
+        TimeUnit.SECONDS.sleep(5)
+        sendText(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[2]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Подъезд\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            text = text,
+            elementName = "Окно ввода подьезда"
+        )
+    }
 
-    val windowFloor = ScreenConstructor (
-        androidXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[4]",
-        iosClassChain = "**/XCUIElementTypeTextField[`label == \"Этаж\"`]",
-        elementName = "Окно ввода этажа"
-    )
+    fun sendWindowIntercom (text: String) {
+        clickToElement(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[3]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Домофон\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Окно ввода домофона"
+        )
+        TimeUnit.SECONDS.sleep(5)
+        sendText(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[3]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Домофон\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            text = text,
+            elementName = "Окно ввода домофона"
+        )
+    }
 
-    val windowComment = ScreenConstructor (
-        androidXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[5]",
-        iosClassChain = "**/XCUIElementTypeTextField[`label == \"Комментарий для курьера\"`]",
-        elementName = "Окно ввода коментария"
-    )
+    fun sendWindowFloor (text: String) {
+        clickToElement(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[4]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Этаж\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Окно ввода этажа"
+        )
+        TimeUnit.SECONDS.sleep(5)
+        sendText(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[4]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Этаж\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            text = text,
+            elementName = "Окно ввода этажа"
+        )
+    }
 
-    val buttonSafe = ScreenConstructor (
-        androidAccessibilityId = "Сохранить",
-        iosClassChain = "**/XCUIElementTypeStaticText[`label == \"Сохранить\"`]",
-        elementName = "Кнопка сохранить в добавлении адреса"
-    )
+    fun sendWindowComment (text: String) {
+        clickToElement(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[5]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Комментарий для курьера\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Окно ввода коментария"
+        )
+        TimeUnit.SECONDS.sleep(5)
+        sendText(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[5]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeTextField[`label == \"Комментарий для курьера\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            text = text,
+            elementName = "Окно ввода коментария"
+        )
+    }
 
-    val buttonUseDoNotAllow = ScreenConstructor (
-        androidAccessibilityId = "com.android.permissioncontroller:id/permission_deny_button",
-        androidXpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.Button[3]",
-        iosClassChain = "**/XCUIElementTypeOther[`label == \"Горизонтальная полоса прокрутки, 1 страница\"`][2]",
-        elementName = "Кнопка Don't allow"
-    )
+    fun clickButtonSafe () {
+        clickToElement(
+            locatorAndroid = "Сохранить",
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = "**/XCUIElementTypeStaticText[`label == \"Сохранить\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Кнопка сохранить в добавлении адреса"
+        )
+    }
 
-    val buttonCross = ScreenConstructor (
-        androidXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.widget.EditText/android.widget.ImageView",
-        iosClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[6]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeImage",
-        elementName = "Удаление адреса"
-    )
+    fun clickButtonUseDoNotAllow () {
+        clickToElement(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.Button[3]",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeOther[`label == \"Горизонтальная полоса прокрутки, 1 страница\"`][2]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Кнопка Don't allow"
+        )
+    }
 
-    val myAddress = ScreenConstructor (
-        androidAccessibilityId = "улица Радищева, 35, Санкт-Петербург",
-        iosAccessibilityId = "улица Радищева, 35, Санкт-Петербург",
-        iosClassChain = "**/XCUIElementTypeStaticText[`label == \"улица Радищева, 35, Санкт-Петербург\"`]",
-        elementName = "Выбор нужного адреса"
-    )
+    fun clickButtonCross () {
+        clickToElement(
+            locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.widget.EditText/android.widget.ImageView",
+            locatorTypeAndroid = LocatorType.XPATH,
+            locatorIOS = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[6]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeImage",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Удаление адреса"
+        )
+    }
 
-    val myFullAddress = ScreenConstructor (
-        androidAccessibilityId = "улица Радищева, 35\n" +
-                "кв 17, 1 подъезд, 5 этаж. Домофон: 17. Привезите быстрее, хочу кушать",
-        iosAccessibilityId = "улица Радищева, 35\n" +
-                "кв 17, 1 подъезд, 5 этаж. Домофон: 17. Привезите быстрее, хочу кушать",
-        iosClassChain = "**/XCUIElementTypeImage[`label == \"улица Радищева, 35\n" +
-                "кв 17, 1 подъезд, 5 этаж. Домофон: 17. Привезите быстрее, хочу кушать\"`]",
-        elementName = "Полный адрес"
-    )
+    fun clickMyAddress () {
+        clickToElement(
+            locatorAndroid = "улица Радищева, 35, Санкт-Петербург",
+            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+            locatorIOS = "**/XCUIElementTypeStaticText[`label == \"улица Радищева, 35, Санкт-Петербург\"`]",
+            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
+            elementName = "Выбор нужного адреса"
+        )
+    }
 
-    val screenMyAddress = ScreenConstructor (
-        androidXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View",
-        iosClassName = "XCUIElementTypeScrollView",
-        iosPredicate = "type == \"XCUIElementTypeScrollView\"",
-        elementName = "Скрин всех моих адресов"
-    )
+    fun swipeMyFullAddressToLeft () {
+        val locatorAndroid = "улица Радищева, 35\n" +
+                "кв 17, 1 подъезд, 5 этаж. Домофон: 17. Привезите быстрее, хочу кушать"
+        val locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID
+        val locatorIOS = "улица Радищева, 35\n" +
+                "кв 17, 1 подъезд, 5 этаж. Домофон: 17. Привезите быстрее, хочу кушать"
+        val locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
 
+        val element  = if (platformType == TypeOS.IOS) {
+            findElement(locatorIOS, locatorTypeIOS)
+        } else {
+            findElement(locatorAndroid, locatorTypeAndroid)
+        }
 
-    val deleteAddedAddress = ScreenConstructor (
-        androidAccessibilityId = "Удалить",
-        iosAccessibilityId = "Удалить",
-        iosClassChain = "**/XCUIElementTypeImage[`label == \"Удалить\"`]",
-        elementName = "Кнопка удалить при свайпе адреса на удаление"
-    )
+        val point = element.location
+        val size = element.size
 
+        swipeOnScreen(
+            point.x + size.width/2,
+            point.y + size.height/2,
+            point.x,
+            point.y + size.height/2
+        )
+    }
+
+    fun swipeScreenMyAddressDown () {
+        val locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View"
+        val locatorTypeAndroid = LocatorType.XPATH
+        val locatorIOS = "type == \"XCUIElementTypeScrollView\""
+        val locatorTypeIOS = LocatorType.IOS_PREDICATE_STRING
+
+        val element  = if (platformType == TypeOS.IOS) {
+            findElement(locatorIOS, locatorTypeIOS)
+        } else {
+            findElement(locatorAndroid, locatorTypeAndroid)
+        }
+
+        val point = element.location
+        val size = element.size
+
+        swipeOnScreen(
+            point.x + size.width/2,
+            point.y + 15,
+            point.x + size.width/2,
+            point.y + size.height
+        )
+    }
+
+    fun clickButtonDeleteAddedAddress () {
+        val locatorAndroid = "Удалить"
+        val locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID
+        val locatorIOS = "Удалить"
+        val locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
+
+        val element  = if (platformType == TypeOS.IOS) {
+            findElement(locatorIOS, locatorTypeIOS)
+        } else {
+            findElement(locatorAndroid, locatorTypeAndroid)
+        }
+
+        tapByCoordinates(
+            element.size.width - 10,
+            element.location.y + 10
+
+        )
+    }
 }

@@ -27,7 +27,8 @@ open class MainActivity {
         makeCapabilities(
             paramPlatformName, paramPlatformVersion,
             paramDeviceName, paramUDID,
-            paramTimeToSearchElement, paramPathToApp)
+            paramTimeToSearchElement, paramPathToApp
+        )
 
         goToMainMenu()
     }
@@ -105,7 +106,6 @@ open class MainActivity {
             androidDriver = AndroidDriver(url, capabilities)
             androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4))
         }
-
 
         platformType = paramPlatformName
     }

@@ -4,7 +4,8 @@ import LocatorType
 import TestFunctions.clickToElement
 import TestFunctions.sendText
 
-object AuthorizationScreen {
+
+class AuthorizationScreen {
 
     fun sendEnterPhone(text: String) {
         sendText(

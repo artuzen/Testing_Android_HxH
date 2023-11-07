@@ -1,17 +1,18 @@
 package general_cases_for_test
 
-import screens.DeliveryScreen.clickButtonDeleteAddedAddress
-import screens.DeliveryScreen.swipeMyFullAddressToLeft
+import screens.DeliveryScreen
 import java.util.concurrent.TimeUnit
 
 object DeleteAddress {
 
     fun deleteAddress (){
 
-        swipeMyFullAddressToLeft ()
+        val deliveryScreen = DeliveryScreen()
+
+        deliveryScreen.swipeMyFullAddressToLeft ()
         TimeUnit.SECONDS.sleep(5)
 
-        clickButtonDeleteAddedAddress ()
+        deliveryScreen.clickButtonDeleteAddedAddress ()
         TimeUnit.SECONDS.sleep(5)
     }
 }

@@ -3,7 +3,7 @@ package screens
 import LocatorType
 import TestFunctions.clickToElement
 
-object Onboarding {
+class Onboarding {
 
     fun clicksSelectLanguage () {
         clickToElement(

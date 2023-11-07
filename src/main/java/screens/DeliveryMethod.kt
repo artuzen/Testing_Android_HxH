@@ -3,7 +3,7 @@ package screens
 import LocatorType
 import TestFunctions.clickToElement
 
-object DeliveryMethod {
+class DeliveryMethod {
 
     fun clickButtonPickup () {
         clickToElement(

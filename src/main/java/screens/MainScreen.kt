@@ -3,7 +3,7 @@ package screens
 import LocatorType
 import TestFunctions.clickToElement
 
-object MainScreen {
+class MainScreen {
 
     fun clickNonExistentButton () {
         clickToElement(

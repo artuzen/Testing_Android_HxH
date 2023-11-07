@@ -7,12 +7,9 @@ import MainActivity
 import TypeOS
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
 import org.testng.annotations.Test
-import screens.AuthorizationScreen.clickButtonGetCode
-import screens.AuthorizationScreen.sendEnterCode
-import screens.AuthorizationScreen.sendEnterPhone
-import screens.MainScreen.clickButtonMenu
-import screens.MainScreen.clickButtonProfile
-import screens.ProfileScreen.clickButtonEnter
+import screens.AuthorizationScreen
+import screens.MainScreen
+import screens.ProfileScreen
 import java.util.concurrent.TimeUnit
 
 class TestAuthorization : MainActivity() {
@@ -23,20 +20,24 @@ class TestAuthorization : MainActivity() {
 
         checkAuthorizationUser(false)
 
-        clickButtonProfile()
+        val mainScreen = MainScreen()
+        val profileScreen = ProfileScreen()
+        val authorizationScreen = AuthorizationScreen()
+
+        mainScreen.clickButtonProfile()
         TimeUnit.SECONDS.sleep(5)
 
-        clickButtonEnter ()
+        profileScreen.clickButtonEnter ()
         TimeUnit.SECONDS.sleep(5)
 
         val phone = "9879915981"
         for (i in 0..9) {
-            sendEnterPhone(phone[i].toString())
+            authorizationScreen.sendEnterPhone(phone[i].toString())
             TimeUnit.SECONDS.sleep(5)
         }
 
 
-        clickButtonGetCode()
+        authorizationScreen.clickButtonGetCode()
         TimeUnit.SECONDS.sleep(10)
 
         val text = if (platformType == TypeOS.IOS) {
@@ -45,12 +46,12 @@ class TestAuthorization : MainActivity() {
             androidDriver.pageSource
         }
 
-        sendEnterCode(text.substring(
+        authorizationScreen.sendEnterCode(text.substring(
             text.indexOf("Введите код из смс&#10;") + 23,
             text.indexOf("&#10;+7 (987) 991-59-81&")))
         TimeUnit.SECONDS.sleep(10)
 
-        clickButtonMenu()
+        mainScreen.clickButtonMenu()
         TimeUnit.SECONDS.sleep(5)
     }
 }

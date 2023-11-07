@@ -4,7 +4,7 @@ import LocatorType
 import TestFunctions.checkAvailableElement
 import TestFunctions.clickToElement
 
-object ProfileScreen {
+class ProfileScreen {
 
     fun clickButtonEnter () {
         clickToElement(

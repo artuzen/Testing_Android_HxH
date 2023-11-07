@@ -24,11 +24,23 @@ open class MainActivity {
                       paramDeviceName: String, paramUDID: String,
                       paramTimeToSearchElement: Long, paramPathToApp: String){
 
-        makeCapabilities(
+        val capabilities = makeCapabilities(
             paramPlatformName, paramPlatformVersion,
             paramDeviceName, paramUDID,
             paramTimeToSearchElement, paramPathToApp
         )
+
+        val url = URL("http://127.0.0.1:4723/")
+
+        if (paramPlatformName == TypeOS.IOS) {
+            iosDriver = IOSDriver(url, capabilities)
+            iosDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4))
+        } else {
+            androidDriver = AndroidDriver(url, capabilities)
+            androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4))
+        }
+
+        platformType = paramPlatformName
 
         goToMainMenu()
     }
@@ -79,7 +91,7 @@ open class MainActivity {
         paramPlatformName: TypeOS, paramPlatformVersion: String,
         paramDeviceName: String, paramUDID: String,
         paramTimeToSearchElement: Long, paramPathToApp: String
-    ) {
+    ): DesiredCapabilities {
         val capabilities = DesiredCapabilities()
 
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, paramPlatformName)
@@ -96,17 +108,6 @@ open class MainActivity {
             capabilities.setCapability(IOSMobileCapabilityType.COMMAND_TIMEOUTS, 50000)
             capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest")
         }
-
-        val url = URL("http://127.0.0.1:4723/")
-
-        if (paramPlatformName == TypeOS.IOS) {
-            iosDriver = IOSDriver(url, capabilities)
-            iosDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4))
-        } else {
-            androidDriver = AndroidDriver(url, capabilities)
-            androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4))
-        }
-
-        platformType = paramPlatformName
+        return capabilities
     }
 }

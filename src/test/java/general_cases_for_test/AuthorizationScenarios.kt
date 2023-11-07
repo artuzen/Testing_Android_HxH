@@ -1,10 +1,8 @@
 package general_cases_for_test
 
 import general_cases_for_test.Authorization.authorization
-import screens.MainScreen.clickButtonMenu
-import screens.MainScreen.clickButtonProfile
-import screens.ProfileScreen.checkAuthorizationPerson
-import screens.ProfileScreen.clickButtonExit
+import screens.MainScreen
+import screens.ProfileScreen
 import java.util.concurrent.TimeUnit
 
 object AuthorizationScenarios {
@@ -16,14 +14,16 @@ object AuthorizationScenarios {
          */
 
         // нужно описать 4 ветки
+        val mainScreen = MainScreen()
+        val profileScreen = ProfileScreen()
         var userIsAuthorization: Boolean
         try {
             // нам нужно получить true, что это сделать, нужно найти элемент, если он не будет
             // найден, то должна обработаться ошибка и установить значение false
-            clickButtonProfile()
+            mainScreen.clickButtonProfile()
             TimeUnit.SECONDS.sleep(5)
 
-            userIsAuthorization = checkAuthorizationPerson ()
+            userIsAuthorization = profileScreen.checkAuthorizationPerson ()
             TimeUnit.SECONDS.sleep(5)
 
         } catch (e: org.openqa.selenium.NoSuchElementException) {
@@ -31,7 +31,7 @@ object AuthorizationScenarios {
         }
         when {
             needAuthorizationUser && userIsAuthorization -> {
-                clickButtonMenu()
+                mainScreen.clickButtonMenu()
                 TimeUnit.SECONDS.sleep(5)
             }
 
@@ -40,15 +40,15 @@ object AuthorizationScenarios {
             }
 
             !needAuthorizationUser && userIsAuthorization -> {
-                clickButtonExit ()
+                profileScreen.clickButtonExit ()
                 TimeUnit.SECONDS.sleep(5)
 
-                clickButtonMenu()
+                mainScreen.clickButtonMenu()
                 TimeUnit.SECONDS.sleep(5)
             }
 
             !needAuthorizationUser && !userIsAuthorization -> {
-                clickButtonMenu()
+                mainScreen.clickButtonMenu()
                 TimeUnit.SECONDS.sleep(5)
             }
         }

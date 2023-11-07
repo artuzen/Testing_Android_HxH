@@ -10,7 +10,7 @@ import TestFunctions.tapByCoordinates
 import TypeOS
 import java.util.concurrent.TimeUnit
 
-object DeliveryScreen {
+class DeliveryScreen {
 
     fun clickButtonAddAddress () {
         clickToElement(

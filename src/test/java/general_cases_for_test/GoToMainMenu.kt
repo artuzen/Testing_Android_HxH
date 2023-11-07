@@ -1,31 +1,31 @@
 package general_cases_for_test
 
-import screens.DeliveryMethod.clickButtonPickup
-import screens.Onboarding.clicksButtonAllow
-import screens.Onboarding.clicksButtonNext
-import screens.Onboarding.clicksButtonNextWindow
-import screens.Onboarding.clicksSelectLanguage
+import screens.DeliveryMethod
+import screens.Onboarding
 import java.util.concurrent.TimeUnit
 
 object GoToMainMenu {
 
     fun goToMainMenu() {
         try {
-            clicksSelectLanguage ()
+            val onboarding = Onboarding()
+            val deliveryMethod = DeliveryMethod()
+
+            onboarding.clicksSelectLanguage ()
             TimeUnit.SECONDS.sleep(5)
 
-            clicksButtonNext ()
+            onboarding.clicksButtonNext ()
             TimeUnit.SECONDS.sleep(5)
 
             try {
-                clicksButtonNextWindow ()
+                onboarding.clicksButtonNextWindow ()
                 TimeUnit.SECONDS.sleep(5)
 
-                clicksButtonAllow ()
+                onboarding.clicksButtonAllow ()
                 TimeUnit.SECONDS.sleep(5)
             } catch (_: Throwable){}
 
-            clickButtonPickup ()
+            deliveryMethod.clickButtonPickup()
             TimeUnit.SECONDS.sleep(5)
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             println("Приложение уже на экране главного меню")

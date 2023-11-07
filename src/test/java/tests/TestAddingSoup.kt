@@ -3,8 +3,7 @@ package tests
 import MainActivity
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
 import org.testng.annotations.Test
-import screens.MainScreen.clickPumpkinSoup
-import screens.MainScreen.clickTabSoup
+import screens.MainScreen
 import java.util.concurrent.TimeUnit
 
 class TestAddingSoup : MainActivity() {
@@ -15,12 +14,14 @@ class TestAddingSoup : MainActivity() {
 
         checkAuthorizationUser(false)
 
+        val mainScreen = MainScreen()
+
         println("Клик по вкладке 'Суп'")
-        clickTabSoup()
+        mainScreen.clickTabSoup()
         TimeUnit.SECONDS.sleep(5)
 
         println("Добавление тыквенного супа")
-        clickPumpkinSoup()
+        mainScreen.clickPumpkinSoup()
         TimeUnit.SECONDS.sleep(5)
     }
 }

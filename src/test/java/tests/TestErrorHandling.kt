@@ -3,7 +3,7 @@ package tests
 import MainActivity
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
 import org.testng.annotations.Test
-import screens.MainScreen.clickNonExistentButton
+import screens.MainScreen
 import java.util.concurrent.TimeUnit
 
 class TestErrorHandling : MainActivity() {
@@ -14,8 +14,10 @@ class TestErrorHandling : MainActivity() {
 
         checkAuthorizationUser(true)
 
+        val mainScreen = MainScreen()
+
         try {
-            clickNonExistentButton()
+            mainScreen.clickNonExistentButton()
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             e.printStackTrace()
             println("Найдена ошибка, данного элемента не существует")

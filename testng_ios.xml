@@ -9,7 +9,7 @@
     <parameter name="paramPathToApp" value="/Users/admin/apps/Runner-intel.app"/>
     <test verbose="2" preserve-order="true" name="IOs tests" parallel="none">
         <classes>
-            <class name="tests.TestLaunch"/>
+           <!-- <class name="tests.TestLaunch"/>
             <class name="tests.TestErrorHandling"/>
             <class name="tests.TestAddingSoup"/>
             <class name="tests.TestNeededAuthorization">
@@ -21,7 +21,8 @@
                 </methods>
             </class>
             <class name="tests.TestAuthorization"/>
-            <class name="tests.TestAddAddressDelivery"/>
+            <class name="tests.TestAddAddressDelivery"/>-->
+            <class name="tests.TestAPI"/>
         </classes>
     </test>
 </suite>

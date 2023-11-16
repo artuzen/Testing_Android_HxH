@@ -18,21 +18,21 @@ class MainScreen {
 
     fun clickTabSoup() {
         clickToElement(
-        locatorAndroid = "//android.view.View[@content-desc=\"Супы\"]",
+        locatorAndroid = tabSoup.androidXpath,
         locatorTypeAndroid = LocatorType.XPATH,
-        locatorIOS = "**/XCUIElementTypeStaticText[`label == \"Супы\"`]",
+        locatorIOS = tabSoup.iosClassChain,
         locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
         elementName = "Кнопка Суп на экране главного меню"
         )
     }
 
-    fun clickPumpkinSoup () {
+    fun clickShiSoup () {
         clickToElement(
-            locatorAndroid = "//android.widget.ImageView[@content-desc=\"270 ₽\"]",
+            locatorAndroid = ShiSoup.androidXpath,
             locatorTypeAndroid = LocatorType.XPATH,
-            locatorIOS = "**/XCUIElementTypeImage[`label == \"270 ₽\"`]",
+            locatorIOS = ShiSoup.iosClassChain,
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            elementName = "Тыквенный суп на экране главного меню"
+            elementName = "Щи на экране главного меню"
         )
     }
 
@@ -52,8 +52,29 @@ class MainScreen {
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = "**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeImage[2]",
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            elementName = "ККнопка главного меню"
+            elementName = "Кнопка главного меню"
         )
     }
+
+    fun updateCategory(neededCategory: String){
+        tabSoup.androidXpath = "//android.view.View[@content-desc=\"${neededCategory}\"]"
+        tabSoup.iosClassChain = "**/XCUIElementTypeStaticText[`label == \"${neededCategory}\"`]"
+    }
+
+    fun updateSoup(priceSoup: Int) {
+        ShiSoup.androidXpath = "//android.widget.ImageView[@content-desc=\"${priceSoup} ₽\"]"
+        ShiSoup.iosClassChain = "**/XCUIElementTypeImage[`label == \"${priceSoup} ₽\"`]"
+    }
+
+    private val ShiSoup = ScreenConstructor (
+        androidXpath = "",
+        iosClassChain = "",
+        elementName = "Щи на экране главного меню"
+    )
+    private val tabSoup = ScreenConstructor (
+        androidXpath = "",
+        iosClassChain = "",
+        elementName = "Кнопка Супы"
+    )
 
 }

@@ -23,8 +23,7 @@ class ProfileScreen {
                     "1",
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = "Тест1\n" +
-                    "+7 (987) 991-59-81\n" +
-                    "1",
+                    "+7 (987) 991-59-81",
             locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
             elementName = "Наименование авторизованного пользователя"
         )

@@ -1,6 +1,8 @@
 package tests
 
 import MainActivity
+import api_client.requests.categories.Categories
+import api_client.requests.meals.MealsInformation
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
 import org.testng.annotations.Test
 import screens.MainScreen
@@ -12,16 +14,25 @@ class TestAddingSoup : MainActivity() {
     fun test1() {
         println("Тест на дополнительные клики")
 
-        checkAuthorizationUser(false)
+        checkAuthorizationUser(true)
 
         val mainScreen = MainScreen()
 
         println("Клик по вкладке 'Суп'")
+        mainScreen.updateCategory(Categories.resBody[2].name)
         mainScreen.clickTabSoup()
         TimeUnit.SECONDS.sleep(5)
 
-        println("Добавление тыквенного супа")
-        mainScreen.clickPumpkinSoup()
+        println("Добавление щи")
+        var i  = 0
+        while (true){
+            if (MealsInformation.resBody[i].categories.contains(Categories.resBody[2].code)) {
+                mainScreen.updateSoup(MealsInformation.resBody[i].minPrice)
+                break
+            }
+            i++
+        }
+        mainScreen.clickShiSoup()
         TimeUnit.SECONDS.sleep(5)
     }
 }

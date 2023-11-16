@@ -7,7 +7,7 @@ open class CategoriesPojo {
     data class CategoriesRes (
         @SerializedName("code") var code: String? = null,
         @SerializedName("status") var status: String? = null,
-        @SerializedName("name") var name: String? = null,
+        @SerializedName("name") var name: String,
         @SerializedName("description") var description: ArrayList<String> = arrayListOf(),
         @SerializedName("logo") var logo: String? = null,
         @SerializedName("blackTheme") var blackTheme: Boolean? = null,

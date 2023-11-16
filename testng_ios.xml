@@ -9,10 +9,11 @@
     <parameter name="paramPathToApp" value="/Users/admin/apps/Runner-intel.app"/>
     <test verbose="2" preserve-order="true" name="IOs tests" parallel="none">
         <classes>
-           <!-- <class name="tests.TestLaunch"/>
-            <class name="tests.TestErrorHandling"/>
+            <class name="tests.TestAPI"/>
+            <!--<class name="tests.TestLaunch"/>
+            <class name="tests.TestErrorHandling"/>-->
             <class name="tests.TestAddingSoup"/>
-            <class name="tests.TestNeededAuthorization">
+            <!--<class name="tests.TestNeededAuthorization">
                 <methods>
                     <include name="test1"/>
                     <include name="test2"/>
@@ -20,9 +21,8 @@
                     <include name="test4"/>
                 </methods>
             </class>
-            <class name="tests.TestAuthorization"/>
-            <class name="tests.TestAddAddressDelivery"/>-->
-            <class name="tests.TestAPI"/>
+            <class name="tests.TestAuthorization"/>-->
+            <class name="tests.TestAddAddressDelivery"/>
         </classes>
     </test>
 </suite>

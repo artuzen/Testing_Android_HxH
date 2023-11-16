@@ -37,7 +37,7 @@ open  class MealsInformationPojo {
         @SerializedName("media") var media: ArrayList<String> = arrayListOf(),
         @SerializedName("descriptionRich") var descriptionRich: ArrayList<String> = arrayListOf(),
         @SerializedName("previewImage") var previewImage: String? = null,
-        @SerializedName("minPrice") var minPrice: Int? = null
+        @SerializedName("minPrice") var minPrice: Int
 
     )
 }

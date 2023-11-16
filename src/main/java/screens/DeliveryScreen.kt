@@ -179,11 +179,9 @@ class DeliveryScreen {
     }
 
     fun swipeMyFullAddressToLeft () {
-        val locatorAndroid = "улица Радищева, 35\n" +
-                "кв 17, 1 подъезд, 5 этаж. Домофон: 17. Привезите быстрее, хочу кушать"
+        val locatorAndroid = myFullAddress.androidAccessibilityId
         val locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID
-        val locatorIOS = "улица Радищева, 35\n" +
-                "кв 17, 1 подъезд, 5 этаж. Домофон: 17. Привезите быстрее, хочу кушать"
+        val locatorIOS = myFullAddress.iosAccessibilityId
         val locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
 
         val element  = if (platformType == TypeOS.IOS) {
@@ -244,4 +242,21 @@ class DeliveryScreen {
 
         )
     }
+
+    fun updateAddress(
+        street: String?, flat: String?, floor: String?,
+        entrance: String?, doorphone: String?, comment: String?
+    ) {
+        myFullAddress.androidAccessibilityId = "${street}\n" +
+                "кв ${flat}, ${entrance} подъезд, ${floor} этаж. Домофон: ${doorphone}. ${comment}"
+        myFullAddress.iosAccessibilityId = "${street}\n" +
+                "кв ${flat}, ${entrance} подъезд, ${floor} этаж. Домофон: ${doorphone}. ${comment}"
+    }
+
+    private val myFullAddress = ScreenConstructor (
+        androidAccessibilityId = "",
+        iosAccessibilityId = "",
+        elementName = "Мой полный адрес"
+
+    )
 }

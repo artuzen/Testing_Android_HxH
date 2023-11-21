@@ -18,8 +18,6 @@ class TestAuthorization : MainActivity() {
     @Description("Проверка работоспособности функции авторизации")
     @Test(description = "Авторизация")
     fun test1() {
-        println("Вход в профиль")
-
         checkAuthorizationUser(false)
 
         val mainScreen = MainScreen()

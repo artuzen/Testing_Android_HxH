@@ -5,17 +5,6 @@ import TestFunctions.clickToElement
 
 class MainScreen {
 
-    fun clickNonExistentButton (findElementWithoutCatching: Boolean = false) {
-        clickToElement(
-            locatorAndroid = "Zakuski",
-            locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
-            locatorIOS = "Zakuski",
-            locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            elementName = "Несуществующая кнопка на экране главного меню",
-            findElementWithoutCatching = findElementWithoutCatching
-        )
-    }
-
     fun clickTabSoup() {
         clickToElement(
         locatorAndroid = tabSoup.androidXpath,

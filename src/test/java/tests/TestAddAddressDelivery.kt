@@ -1,6 +1,12 @@
 package tests
 
 import MainActivity
+import api_client.environment.Environment
+import api_client.requests.auth.AuthLogin
+import api_client.requests.auth.AuthResetCode
+import api_client.requests.user.SessionId
+import api_client.requests.user.UserInformation
+import api_client.specifications.Specifications
 import general_cases_for_test.AddFullAddress.addFullAddress
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
 import general_cases_for_test.DeleteAddress.deleteAddress
@@ -16,6 +22,19 @@ class TestAddAddressDelivery : MainActivity(){
     @Description("Тест на добавление и удаление адреса в профиле человека")
     @Test(description = "Работа с адресом")
     fun test1() {
+        Specifications.installSpecification(Specifications.requestSpec(Environment.environment.host))
+        SessionId.get(mutableMapOf())
+        TimeUnit.SECONDS.sleep(5)
+
+        AuthResetCode.post(AuthResetCode.authResetCodeReqBody("79879915981"))
+        TimeUnit.SECONDS.sleep(5)
+
+        AuthLogin.post(AuthLogin.authLoginReqBody("79879915981", "3256"))
+        TimeUnit.SECONDS.sleep(5)
+
+        UserInformation.get(mutableMapOf())
+        TimeUnit.SECONDS.sleep(5)
+
         checkAuthorizationUser(true)
 
         val mainScreen = MainScreen()

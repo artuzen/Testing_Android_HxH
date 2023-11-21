@@ -26,7 +26,7 @@ object Environment {
     data class EndPoints (
         val categories: String = "categories/8c65fc68-dfd9-4591-a8f2-9edf77fbd3fd/v2",
         val authRestCode: String = "/auth/resetCode",
-        val authLogin: String = "auth/login",
+        val authLogin: String = "/auth/login",
         val sessionId: String = "/user/sessionId",
         val userInformation: String = "/user/v2",
         val meals: String = "/meals/8c65fc68-dfd9-4591-a8f2-9edf77fbd3fd/v2"

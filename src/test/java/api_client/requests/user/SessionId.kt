@@ -5,6 +5,7 @@ import api_client.Get
 import api_client.Res
 import api_client.environment.Environment.endPoints
 import api_client.environment.Environment.headers
+import io.qameta.allure.Step
 import io.restassured.response.Response
 
 object SessionId : Get, Res{
@@ -15,6 +16,7 @@ object SessionId : Get, Res{
         return response.body.asString()
     }
 
+    @Step("Отправка запроса GET /user/sessionId")
     override fun get(queryParams: MutableMap<String, String>) {
         val responseJSON = getReq(
             queryParams = queryParams,

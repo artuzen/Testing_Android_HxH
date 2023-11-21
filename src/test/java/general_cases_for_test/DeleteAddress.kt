@@ -25,7 +25,7 @@ object DeleteAddress {
             }
             i++
         }
-        deliveryScreen.swipeMyFullAddressToLeft ()
+        deliveryScreen.swipeMyFullAddressToLeft (findElementWithoutCatching = true)
         TimeUnit.SECONDS.sleep(5)
 
         deliveryScreen.clickButtonDeleteAddedAddress ()

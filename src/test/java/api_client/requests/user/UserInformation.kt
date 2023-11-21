@@ -6,6 +6,7 @@ import api_client.Res
 import api_client.environment.Environment.endPoints
 import api_client.pojo.user.UserInformationPojo
 import com.google.gson.Gson
+import io.qameta.allure.Step
 import io.restassured.response.Response
 
 object UserInformation : Get, Res, UserInformationPojo() {
@@ -18,6 +19,7 @@ object UserInformation : Get, Res, UserInformationPojo() {
         return gson.fromJson(jsonString, UserInformationRes::class.java)
     }
 
+    @Step("Отправка запроса GET /user/v2")
     override fun get(queryParams: MutableMap<String, String>) {
         val responseJSON = getReq(
             queryParams = queryParams,

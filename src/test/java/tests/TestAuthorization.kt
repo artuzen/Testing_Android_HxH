@@ -6,6 +6,7 @@ import GlobalVariable.platformType
 import MainActivity
 import TypeOS
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
+import io.qameta.allure.Description
 import org.testng.annotations.Test
 import screens.AuthorizationScreen
 import screens.MainScreen
@@ -14,7 +15,8 @@ import java.util.concurrent.TimeUnit
 
 class TestAuthorization : MainActivity() {
 
-    @Test
+    @Description("Проверка работоспособности функции авторизации")
+    @Test(description = "Авторизация")
     fun test1() {
         println("Вход в профиль")
 

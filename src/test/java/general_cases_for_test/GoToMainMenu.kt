@@ -11,10 +11,10 @@ object GoToMainMenu {
             val onboarding = Onboarding()
             val deliveryMethod = DeliveryMethod()
 
-            onboarding.clicksSelectLanguage ()
+            onboarding.clicksSelectLanguage (findElementWithoutCatching = true)
             TimeUnit.SECONDS.sleep(5)
 
-            onboarding.clicksButtonNext ()
+            onboarding.clicksButtonNext (findElementWithoutCatching = true)
             TimeUnit.SECONDS.sleep(5)
 
             try {

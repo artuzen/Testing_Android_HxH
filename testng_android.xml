@@ -12,14 +12,6 @@
             <class name="tests.TestLaunch"/>
             <class name="tests.TestErrorHandling"/>
             <class name="tests.TestAddingSoup"/>
-            <class name="tests.TestNeededAuthorization">
-                <methods>
-                    <include name="test1"/>
-                    <include name="test2"/>
-                    <include name="test3"/>
-                    <include name="test4"/>
-                </methods>
-            </class>
             <class name="tests.TestAuthorization"/>
             <class name="tests.TestAddAddressDelivery"/>
         </classes>

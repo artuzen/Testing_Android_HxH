@@ -148,13 +148,14 @@ class DeliveryScreen {
         )
     }
 
-    fun clickButtonUseDoNotAllow () {
+    fun clickButtonUseDoNotAllow (findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.Button[3]",
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = "**/XCUIElementTypeOther[`label == \"Горизонтальная полоса прокрутки, 1 страница\"`][2]",
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            elementName = "Кнопка Don't allow"
+            elementName = "Кнопка Don't allow",
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
@@ -178,16 +179,16 @@ class DeliveryScreen {
         )
     }
 
-    fun swipeMyFullAddressToLeft () {
+    fun swipeMyFullAddressToLeft (findElementWithoutCatching: Boolean = false) {
         val locatorAndroid = myFullAddress.androidAccessibilityId
         val locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID
         val locatorIOS = myFullAddress.iosAccessibilityId
         val locatorTypeIOS = LocatorType.ACCESSIBILITY_ID
 
         val element  = if (platformType == TypeOS.IOS) {
-            findElement(locatorIOS, locatorTypeIOS)
+            findElement(locatorIOS, locatorTypeIOS, findElementWithoutCatching)
         } else {
-            findElement(locatorAndroid, locatorTypeAndroid)
+            findElement(locatorAndroid, locatorTypeAndroid, findElementWithoutCatching)
         }
 
         val point = element.location

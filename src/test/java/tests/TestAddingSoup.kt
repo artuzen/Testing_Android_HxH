@@ -4,13 +4,15 @@ import MainActivity
 import api_client.requests.categories.Categories
 import api_client.requests.meals.MealsInformation
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
+import io.qameta.allure.Description
 import org.testng.annotations.Test
 import screens.MainScreen
 import java.util.concurrent.TimeUnit
 
 class TestAddingSoup : MainActivity() {
 
-    @Test
+    @Description("Тест на добовление Щи по средствам работы с запросами API")
+    @Test(description = "Добавления супа")
     fun test1() {
         println("Тест на дополнительные клики")
 

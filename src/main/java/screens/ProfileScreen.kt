@@ -16,7 +16,7 @@ class ProfileScreen {
         )
     }
 
-    fun checkAuthorizationPerson (): Boolean {
+    fun checkAuthorizationPerson (findElementWithoutCatching: Boolean = false): Boolean {
         return checkAvailableElement(
             locatorAndroid = "Тест1\n" +
                     "+7 (987) 991-59-81\n" +
@@ -25,7 +25,8 @@ class ProfileScreen {
             locatorIOS = "Тест1\n" +
                     "+7 (987) 991-59-81",
             locatorTypeIOS = LocatorType.ACCESSIBILITY_ID,
-            elementName = "Наименование авторизованного пользователя"
+            elementName = "Наименование авторизованного пользователя",
+            findElementWithoutCatching =findElementWithoutCatching
         )
     }
 

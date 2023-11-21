@@ -23,7 +23,7 @@ object AuthorizationScenarios {
             mainScreen.clickButtonProfile()
             TimeUnit.SECONDS.sleep(5)
 
-            userIsAuthorization = profileScreen.checkAuthorizationPerson ()
+            userIsAuthorization = profileScreen.checkAuthorizationPerson (findElementWithoutCatching = true)
             TimeUnit.SECONDS.sleep(5)
 
         } catch (e: org.openqa.selenium.NoSuchElementException) {

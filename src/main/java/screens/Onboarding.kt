@@ -5,23 +5,25 @@ import TestFunctions.clickToElement
 
 class Onboarding {
 
-    fun clicksSelectLanguage () {
+    fun clicksSelectLanguage (findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = "//android.view.View[@content-desc=\"Русский\"]",
             locatorTypeAndroid = LocatorType.XPATH,
             locatorIOS = "**/XCUIElementTypeStaticText[`label == \"Русский\"`]",
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            elementName = "Выбор русского языка на экране онбординга"
+            elementName = "Выбор русского языка на экране онбординга",
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 
-    fun clicksButtonNext () {
+    fun clicksButtonNext (findElementWithoutCatching: Boolean = false) {
         clickToElement(
             locatorAndroid = "Далее",
             locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
             locatorIOS = "**/XCUIElementTypeStaticText[`label == \"Далее\"`]",
             locatorTypeIOS = LocatorType.IOS_CLASS_CHAIN,
-            elementName = "Кнопка Далее на экране онбординга"
+            elementName = "Кнопка Далее на экране онбординга",
+            findElementWithoutCatching = findElementWithoutCatching
         )
     }
 

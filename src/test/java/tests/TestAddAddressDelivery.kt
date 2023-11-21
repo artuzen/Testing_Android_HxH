@@ -4,6 +4,7 @@ import MainActivity
 import general_cases_for_test.AddFullAddress.addFullAddress
 import general_cases_for_test.AuthorizationScenarios.checkAuthorizationUser
 import general_cases_for_test.DeleteAddress.deleteAddress
+import io.qameta.allure.Description
 import org.testng.annotations.Test
 import screens.DeliveryScreen
 import screens.MainScreen
@@ -12,7 +13,8 @@ import java.util.concurrent.TimeUnit
 
 class TestAddAddressDelivery : MainActivity(){
 
-    @Test
+    @Description("Тест на добавление и удаление адреса в профиле человека")
+    @Test(description = "Работа с адресом")
     fun test1() {
         checkAuthorizationUser(true)
 
@@ -34,7 +36,7 @@ class TestAddAddressDelivery : MainActivity(){
         TimeUnit.SECONDS.sleep(10)
 
         try {
-            deliveryScreen.clickButtonUseDoNotAllow ()
+            deliveryScreen.clickButtonUseDoNotAllow (findElementWithoutCatching = true)
             TimeUnit.SECONDS.sleep(10)
         } catch (_: Exception){ }
 
